@@ -1,0 +1,21 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: sealed-secrets
+  namespace: kube-system
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.sealed-secrets: glob:v*.*.*
+    registry.fluxcd.io/sealed-secrets: quay.io
+    repository.fluxcd.io/sealed-secrets: bitnami/sealed-secrets-controller
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: sealed-secrets
+  chart:
+    repository: https://kubernetes-charts.storage.googleapis.com
+    name: sealed-secrets
+    version: 1.10.3
