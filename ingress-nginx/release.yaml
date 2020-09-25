@@ -17,3 +17,7 @@ spec:
     repository: https://kubernetes.github.io/ingress-nginx
     name: ingress-nginx
     version: 3.3.0
+  values:
+    controller:
+      image:
+        repository: k8s.gcr.io/ingress-nginx/controller
