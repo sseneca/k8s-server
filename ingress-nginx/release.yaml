@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.ingress-nginx: semver:*
+    fluxcd.io/tag.ingress-nginx: glob:v0.3*.*
 spec:
   test:
     enable: true
