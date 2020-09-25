@@ -1,0 +1,33 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: metallb
+  namespace: metallb-system
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.metallb-controller: semver:*
+    fluxcd.io/tag.metallb-speaker: semver:*
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: metallb
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: metallb
+    version: 0.1.24
+  values:
+    controller:
+      image:
+        repository: bitnami/metallb-controller
+    speaker:
+      image:
+        repository: bitnami/metallb-speaker
+    configInline:
+      address-pools:
+        - name: default
+          protocol: layer2
+          addresses:
+          - 192.168.1.240-192.168.1.250
