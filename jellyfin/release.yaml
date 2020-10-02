@@ -40,8 +40,8 @@ spec:
         enabled: false
       movies:
         enabled: false
-    extraExistingClaimMounts:
-      - name: music
-        mountPath: /mnt/music
-        existingClaim: jellyfin-music
-        readOnly: true
+      extraExistingClaimMounts:
+        - name: music
+          mountPath: /mnt/music
+          existingClaim: jellyfin-music
+          readOnly: true
