@@ -1,0 +1,27 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: database-gitea
+spec:
+  storageClassName: local-path
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /var/lib/databases/gitea
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: database-gitea
+  namespace: gitea
+spec:
+  storageClassName: local-path
+  volumeName: database-gitea
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

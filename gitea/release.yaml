@@ -1,0 +1,68 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: gitea
+  namespace: gitea
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.gitea: semver:~1
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: gitea
+  chart:
+    repository: https://dl.gitea.io/charts/
+    name: gitea
+    version: 1.4.8
+  valuesFrom:
+    - secretKeyRef:
+        name: gitea
+  values:
+    image:
+      repository: gitea/gitea
+    service:
+      ssh:
+        type: LoadBalancer
+        port: 22
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      hosts:
+        - git.ssene.ca
+      tls:
+        - hosts:
+            - git.ssene.ca
+          secretName: gitea-tls-cert
+    persistence:
+      storageClass: local-path
+    gitea:
+      admin:
+        username: sseneca
+        email: "me@ssene.ca"
+      config:
+        APP_NAME: "sseneca's gitea"
+        RUN_MODE: prod
+        repository:
+          PREFERRED_LICENSES: GPL-3.0+,Apache License 2.0,MIT License
+          ENABLE_PUSH_CREATE_USER: true
+          DEFAULT_BRANCH: main
+        service:
+          DISABLE_REGISTRATION: true
+        security:
+          PASSWORD_CHECK_PWN: true
+    postgresql:
+      image:
+        tag: 13.0.0
+      persistence:
+        existingClaim: database-gitea
+      volumePermissions:
+        enabled: true
+      psp:
+        Create: true
+
+      rbac:
+        create: true
