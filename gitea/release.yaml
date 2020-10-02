@@ -8,7 +8,7 @@ metadata:
     fluxcd.io/tag.gitea: semver:~1
 spec:
   test:
-    enable: true
+    enable: false
   rollback:
     enable: true
     retry: true
