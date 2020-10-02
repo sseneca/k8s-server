@@ -1,0 +1,46 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: jellyfin
+  namespace: jellyfin
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.jellyfin: semver:~10.6
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: jellyfin
+  chart:
+    repository: https://k8s-at-home.com/charts/
+    name: jellyfin
+    version: 2.0.1
+  values:
+    image:
+      repository: jellyfin/jellyfin
+    timezone: UTC+1
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      path: /
+      hosts:
+        - jellyfin.ssene.ca
+      tls:
+        - hosts:
+            - jellyfin.ssene.ca
+          secretName: jellyfin-tls-cert
+    persistence:
+      config:
+        enabled: true
+      tvshows:
+        enabled: false
+      movies:
+        enabled: false
+    extraExistingClaimMounts:
+      - name: music
+        mountPath: /mnt/music
+        existingClaim: jellyfin-music
+        readOnly: true
