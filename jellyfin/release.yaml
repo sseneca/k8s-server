@@ -45,3 +45,7 @@ spec:
           mountPath: /mnt/music
           existingClaim: jellyfin-music
           readOnly: true
+        - name: podcasts
+          mountPath: /mnt/podcasts
+          existingClaim: jellyfin-podcasts
+          readOnly: false
