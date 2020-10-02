@@ -24,6 +24,9 @@ spec:
     image:
       repository: gitea/gitea
     service:
+      http:
+        type: ClusterIP
+        port: 3000
       ssh:
         type: LoadBalancer
         port: 22
