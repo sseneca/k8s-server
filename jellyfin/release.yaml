@@ -49,3 +49,7 @@ spec:
           mountPath: /mnt/podcasts
           existingClaim: jellyfin-podcasts
           readOnly: false
+        - name: youtube
+          mountPath: /mnt/youtube
+          existingClaim: jellyfin-youtube
+          readOnly: false

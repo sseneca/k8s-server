@@ -52,3 +52,30 @@ spec:
   resources:
     requests:
       storage: 10Gi
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jellyfin-youtube
+spec:
+  storageClassName: local-path
+  capacity:
+    storage: 20Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /srv/nfs/media/youtube
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jellyfin-youtube
+  namespace: jellyfin
+spec:
+  storageClassName: local-path
+  volumeName: jellyfin-youtube
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
