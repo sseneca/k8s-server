@@ -58,7 +58,6 @@ spec:
   rollback:
     enable: true
     retry: true
-  releaseName: postgresql
   chart:
     repository: https://charts.bitnami.com/bitnami
     name: postgresql
