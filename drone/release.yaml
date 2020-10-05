@@ -7,6 +7,12 @@ metadata:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.drone: semver:~1
 spec:
+  test:
+    enable: false
+  rollback:
+    enable: true
+    retry: true
+  releaseName: drone
   chart:
     repository: https://charts.drone.io
     name: drone
@@ -20,7 +26,7 @@ spec:
     ingress:
       enabled: true
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
         - host: drone.ssene.ca
           paths:
