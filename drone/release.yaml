@@ -8,7 +8,7 @@ metadata:
     fluxcd.io/tag.drone: semver:~1
 spec:
   test:
-    enable: false
+    enable: true
   rollback:
     enable: true
     retry: true
@@ -53,6 +53,12 @@ metadata:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.postgresql: semver:~13.0
 spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: postgresql
   chart:
     repository: https://charts.bitnami.com/bitnami
     name: postgresql
