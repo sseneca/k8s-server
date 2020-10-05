@@ -14,7 +14,6 @@ spec:
   rollback:
     enable: true
     retry: true
-  releaseName: nextcloud
   chart:
     repository: https://nextcloud.github.io/helm
     name: nextcloud
