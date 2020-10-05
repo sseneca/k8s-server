@@ -1,0 +1,69 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: nextcloud
+  namespace: nextcloud
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.nextcloud: semver:~20.0-fpm-alpine
+    fluxcd.io/tag.postgresql: semver:~13.0
+    fluxcd.io/tag.curl: semver:~7
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: nextcloud
+  chart:
+    repository: https://nextcloud.github.io/helm
+    name: nextcloud
+    version: 2.2.0
+  valuesFrom:
+    - secretKeyRef:
+        name: nextcloud
+  values:
+    image:
+      repository: nextcloud
+      tag: 20.0-fpm-alpine
+    ingress:
+      enabled: true
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: 4G
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      tls:
+        - hosts:
+            - cloud.ssene.ca
+          secretName: nextcloud-tls-cert
+    nextcloud:
+      host: cloud.ssene.ca
+    nginx:
+      enabled: true
+    internalDatabase:
+      enabled: false
+    externalDatabase:
+      enabled: true
+      type: postgresql
+      host: nextcloud-postgresql.nextcloud.svc.cluster.local
+    postgresql:
+      enabled: true
+      persistence:
+        enabled: true
+        existingClaim: database-nextcloud
+      image:
+        repository: bitnami/postgresql
+        tag: 13.0.0
+      volumePermissions:
+        enabled: true
+      psp:
+        create: true
+      rbac:
+        create: true
+    redis:
+      enabled: true
+    cronjob:
+      enabled: true
+      image:
+        repository: curlimages/curl
+    persistence:
+      enabled: true
