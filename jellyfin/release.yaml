@@ -53,3 +53,7 @@ spec:
           mountPath: /mnt/youtube
           existingClaim: jellyfin-youtube
           readOnly: false
+        - name: lectures
+          mountPath: /mnt/lectures
+          existingClaim: jellyfin-lectures
+          readOnly: true
