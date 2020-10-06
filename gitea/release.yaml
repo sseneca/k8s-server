@@ -57,6 +57,10 @@ spec:
           DISABLE_REGISTRATION: true
         security:
           PASSWORD_CHECK_PWN: true
+        picture:
+          ENABLE_FEDERATED_AVATAR: true
+        server:
+          OFFLINE_MODE: true
     postgresql:
       image:
         tag: 13.0.0
