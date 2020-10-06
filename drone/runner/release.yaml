@@ -1,7 +1,7 @@
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
-  name: drone
+  name: drone-runner-kube
   namespace: drone
   annotations:
     fluxcd.io/automated: "true"
@@ -15,7 +15,7 @@ spec:
   releaseName: drone-runner-kube
   chart:
     repository: https://charts.drone.io
-    name: drone
+    name: drone-runner-kube
     version: 0.1.4
   valuesFrom:
     - secretKeyRef:
