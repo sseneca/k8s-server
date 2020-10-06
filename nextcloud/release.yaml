@@ -43,7 +43,7 @@ spec:
     externalDatabase:
       enabled: true
       type: postgresql
-      host: nextcloud-postgresql.nextcloud.svc.cluster.local
+      host: nextcloud-nextcloud-postgresql.nextcloud.svc.cluster.local
     postgresql:
       enabled: true
       persistence:
