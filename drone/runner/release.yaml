@@ -34,6 +34,9 @@ spec:
       - hosts:
         - drone-runner01.ssene.ca
         secretName: drone-runner01-tls-cert
+    rbac:
+      buildNamespaces:
+        - drone
     env:
       DRONE_RPC_HOST: drone.ssene.ca
       DRONE_RPC_PROTO: https
