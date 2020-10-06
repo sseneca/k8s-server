@@ -64,5 +64,6 @@ spec:
       enabled: true
       image:
         repository: curlimages/curl
+        tag: 7.72.0
     persistence:
       enabled: true
