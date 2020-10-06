@@ -57,3 +57,7 @@ spec:
           mountPath: /mnt/lectures
           existingClaim: jellyfin-lectures
           readOnly: true
+        - name: shows
+          mountPath: /mnt/shows
+          existingClaim: jellyfin-shows
+          readOnly: true
