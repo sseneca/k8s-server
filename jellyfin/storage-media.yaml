@@ -137,7 +137,7 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: jellyfin-shows
+  name: jellyfin-books
 spec:
   storageClassName: local-path
   capacity:
