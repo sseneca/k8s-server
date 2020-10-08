@@ -65,3 +65,7 @@ spec:
           mountPath: /mnt/books
           existingClaim: jellyfin-books
           readOnly: true
+        - name: movies
+          mountPath: /mnt/movies
+          existingClaim: jellyfin-movies
+          readOnly: true
