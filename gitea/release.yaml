@@ -16,13 +16,14 @@ spec:
   chart:
     repository: https://dl.gitea.io/charts/
     name: gitea
-    version: 1.4.8
+    version: 1.5.4
   valuesFrom:
     - secretKeyRef:
         name: gitea
   values:
     image:
       repository: gitea/gitea
+      version: 1.12.5
     service:
       http:
         type: ClusterIP
