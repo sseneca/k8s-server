@@ -8,6 +8,7 @@ metadata:
     fluxcd.io/automated: "true"
     repository.fluxcd.io/gitea: image.repository
     tag.fluxcd.io/gitea: image.version
+    fluxcd.io/tag.chart-image: semver:~1
     fluxcd.io/tag.postgresql: semver:~13.0
 spec:
   test:
@@ -26,7 +27,7 @@ spec:
   values:
     image:
       repository: gitea/gitea
-      version: linux-arm64
+      version: 1.12.5
     service:
       http:
         type: ClusterIP
