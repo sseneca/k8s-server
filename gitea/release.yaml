@@ -1,3 +1,4 @@
+---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -19,11 +20,11 @@ spec:
     name: gitea
     version: 1.5.4
   valuesFrom:
-    - secretKeyRef:
-        name: gitea-secrets
+  - secretKeyRef:
+      name: gitea-secrets
   values:
     image:
-      repository: gitea/gitea
+      repository: gitea/gitea:1.12.5
       version: 1.12.5
     service:
       http:
@@ -37,11 +38,11 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
-        - git.ssene.ca
+      - git.ssene.ca
       tls:
-        - hosts:
-            - git.ssene.ca
-          secretName: gitea-tls-cert
+      - hosts:
+        - git.ssene.ca
+        secretName: gitea-tls-cert
     persistence:
       storageClass: local-path
     gitea:
