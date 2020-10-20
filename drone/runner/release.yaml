@@ -4,6 +4,9 @@ kind: HelmRelease
 metadata:
   name: drone-runner-kube
   namespace: drone
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.drone-runner-kube: semver:~1
 spec:
   test:
     enable: true
@@ -17,11 +20,11 @@ spec:
     version: 0.1.4
   valuesFrom:
   - secretKeyRef:
-      name: drone-runner-kube
+      name: drone-runner-kube-secrets
   values:
     image:
       repository: drone/drone-runner-kube
-      tag: linux-amd64
+      tag: 1.0.0-beta.4
     ingress:
       enabled: true
       annotations:

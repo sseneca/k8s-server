@@ -19,10 +19,11 @@ spec:
     version: 0.1.7
   valuesFrom:
     - secretKeyRef:
-        name: drone
+        name: drone-secrets
   values:
     image:
       repository: drone/drone
+      tag: 1.9.1
     ingress:
       enabled: true
       annotations:
@@ -68,6 +69,7 @@ spec:
   values:
     image:
       repository: bitnami/postgresql
+      tag: 13.0.0
     persistence:
       existingClaim: database-drone
     volumePermissions:
