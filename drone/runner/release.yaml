@@ -6,7 +6,7 @@ metadata:
   namespace: drone
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.drone-runner-kube: semver:~1
+    fluxcd.io/tag.chart-image: semver:~1
 spec:
   test:
     enable: true
@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: drone/drone-runner-kube
-      tag: linux-arm64
+      tag: 1.0.0-beta.4
     ingress:
       enabled: true
       annotations:
@@ -39,7 +39,7 @@ spec:
         secretName: drone-runner01-tls-cert
     rbac:
       buildNamespaces:
-      - drone
+        - drone
     env:
       DRONE_RPC_HOST: drone.ssene.ca
       DRONE_RPC_PROTO: https
