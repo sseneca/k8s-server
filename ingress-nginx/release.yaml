@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.ingress-nginx: glob:v0.3*.*
+    fluxcd.io/tag.chart-image: glob:v0.*
 spec:
   test:
     enable: true
@@ -16,8 +16,9 @@ spec:
   chart:
     repository: https://kubernetes.github.io/ingress-nginx
     name: ingress-nginx
-    version: 3.3.0
+    version: 3.4.0
   values:
     controller:
       image:
         repository: k8s.gcr.io/ingress-nginx/controller
+        tag: v0.40.1

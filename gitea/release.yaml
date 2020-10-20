@@ -5,7 +5,8 @@ metadata:
   namespace: gitea
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.gitea: semver:~1
+    fluxcd.io/tag.chart-image: semver:~1
+    fluxcd.io/tag.postgresql: semver:~13.0
 spec:
   test:
     enable: false

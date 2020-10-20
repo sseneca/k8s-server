@@ -5,8 +5,8 @@ metadata:
   namespace: metallb-system
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.metallb-controller: semver:*
-    fluxcd.io/tag.metallb-speaker: semver:*
+    fluxcd.io/tag.controller: semver:*
+    fluxcd.io/tag.speaker: semver:*
 spec:
   test:
     enable: true
@@ -22,9 +22,11 @@ spec:
     controller:
       image:
         repository: bitnami/metallb-controller
+        tag: 0.9.4
     speaker:
       image:
         repository: bitnami/metallb-speaker
+        tag: 0.9.4
     configInline:
       address-pools:
         - name: default

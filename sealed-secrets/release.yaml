@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.sealed-secrets: glob:v*.*.*
+    fluxcd.io/tag.chart-image: glob:v0.*
     registry.fluxcd.io/sealed-secrets: quay.io
     repository.fluxcd.io/sealed-secrets: bitnami/sealed-secrets-controller
 spec:
@@ -19,3 +19,7 @@ spec:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: sealed-secrets
     version: 1.10.3
+  values:
+    image:
+      repository: quay.io/bitnami/sealed-secrets-controller
+      tag: v0.12.4

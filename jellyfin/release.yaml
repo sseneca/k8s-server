@@ -5,7 +5,7 @@ metadata:
   namespace: jellyfin
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.jellyfin: semver:~10.6
+    fluxcd.io/tag.chart-image: semver:~10.6
 spec:
   test:
     enable: true
