@@ -6,7 +6,7 @@ metadata:
   namespace: kube-system
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.chart-image: glob:v0.*
+    fluxcd.io/tag.chart-image: semver:~0.12
     registry.fluxcd.io/sealed-secrets: quay.io
     repository.fluxcd.io/sealed-secrets: bitnami/sealed-secrets-controller
 spec:
