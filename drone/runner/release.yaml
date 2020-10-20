@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: drone/drone-runner-kube
-      tag: 1.0.0-beta.4
+      tag: linux-arm64
     ingress:
       enabled: true
       annotations:
@@ -39,7 +39,7 @@ spec:
         secretName: drone-runner01-tls-cert
     rbac:
       buildNamespaces:
-        - drone
+      - drone
     env:
       DRONE_RPC_HOST: drone.ssene.ca
       DRONE_RPC_PROTO: https
