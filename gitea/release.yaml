@@ -19,7 +19,7 @@ spec:
     version: 1.5.4
   valuesFrom:
     - secretKeyRef:
-        name: gitea
+        name: gitea-secrets
   values:
     image:
       repository: gitea/gitea
