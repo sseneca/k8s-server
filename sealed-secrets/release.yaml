@@ -23,4 +23,4 @@ spec:
   values:
     image:
       repository: quay.io/bitnami/sealed-secrets-controller
-      tag: v0.12.6-731208561-linux-arm
+      tag: v0.12.6
