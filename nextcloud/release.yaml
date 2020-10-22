@@ -70,7 +70,7 @@ spec:
     redis:
       enabled: true
     cronjob:
-      enabled: true
+      enabled: false
       image:
         repository: nextcloud
         tag: 20-fpm-alpine
