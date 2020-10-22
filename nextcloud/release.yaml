@@ -7,7 +7,7 @@ metadata:
     fluxcd.io/automated: "true"
     fluxcd.io/tag.chart-image: semver:~20.0-fpm-alpine
     fluxcd.io/tag.postgresql: semver:~13.0
-    fluxcd.io/tag.cronjob: semver:~7
+    fluxcd.io/tag.cronjob: semver:~20.0-fpm-alpine
 spec:
   test:
     enable: true
@@ -72,7 +72,7 @@ spec:
     cronjob:
       enabled: true
       image:
-        repository: curlimages/curl
-        tag: 7.73.0
+        repository: nextcloud
+        tag: 20-fpm-alpine
     persistence:
       enabled: true
