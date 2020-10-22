@@ -39,8 +39,13 @@ spec:
       host: cloud.ssene.ca
       extraVolumes:
         - name: photos
-          existingClaim: photos-nextcloud
-          readOnly: false
+          hostPath:
+            storageClassName: local-path
+            capacity:
+              storage: 200Gi
+            accessModes:
+              - ReadWriteOnce
+            path: /srv/nfs/media/photos
       extraVolumeMounts:
         - name: photos
           mountPath: "/photos"
