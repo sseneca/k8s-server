@@ -1,0 +1,23 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: intel-gpu-plugin
+  namespace: kube-system
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: semver:~0.18
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: intel-gpu-plugin
+  chart:
+    repository: https://k8s-at-home.com/charts/
+    name: intel-gpu-plugin
+    version: 1.0.0
+  values:
+    image:
+      repository: intel/intel-gpu-plugin
+      tag: 0.18.1
