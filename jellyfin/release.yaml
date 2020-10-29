@@ -69,3 +69,6 @@ spec:
           mountPath: /mnt/movies
           existingClaim: jellyfin-movies
           readOnly: true
+    resources:
+      limits:
+        gpu.intel.com/i915: 1
