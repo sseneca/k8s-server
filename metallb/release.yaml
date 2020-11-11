@@ -27,7 +27,7 @@ spec:
     speaker:
       image:
         repository: bitnami/metallb-speaker
-        tag: 0.9.4
+        tag: 0.9.5
     configInline:
       address-pools:
       - name: default
