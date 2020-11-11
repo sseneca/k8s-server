@@ -1,3 +1,4 @@
+---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -22,14 +23,14 @@ spec:
     controller:
       image:
         repository: bitnami/metallb-controller
-        tag: 0.9.4
+        tag: 0.9.5
     speaker:
       image:
         repository: bitnami/metallb-speaker
         tag: 0.9.4
     configInline:
       address-pools:
-        - name: default
-          protocol: layer2
-          addresses:
-          - 192.168.1.240-192.168.1.250
+      - name: default
+        protocol: layer2
+        addresses:
+        - 192.168.1.240-192.168.1.250
