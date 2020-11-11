@@ -1,3 +1,4 @@
+---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -18,24 +19,24 @@ spec:
     name: drone
     version: 0.1.7
   valuesFrom:
-    - secretKeyRef:
-        name: drone-secrets
+  - secretKeyRef:
+      name: drone-secrets
   values:
     image:
       repository: drone/drone
-      tag: 1.9.1
+      tag: 1.9.2
     ingress:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
       hosts:
-        - host: drone.ssene.ca
-          paths:
-            - "/"
+      - host: drone.ssene.ca
+        paths:
+        - "/"
       tls:
-        - hosts:
-            - drone.ssene.ca
-          secretName: drone-tls-cert
+      - hosts:
+        - drone.ssene.ca
+        secretName: drone-tls-cert
     persistentVolume:
       enabled: false
     env:
@@ -64,8 +65,8 @@ spec:
     name: postgresql
     version: 9.8.1
   valuesFrom:
-    - secretKeyRef:
-        name: postgresql
+  - secretKeyRef:
+      name: postgresql
   values:
     image:
       repository: bitnami/postgresql
