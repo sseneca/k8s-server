@@ -1,0 +1,27 @@
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: gitlab-runner
+  namespace: gitlab-runner
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: semver:~alpine-v13
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: gitlab-runner
+  chart:
+    repository: https://charts.gitlab.io
+    name: gitlab-runner
+    version: 0.22.0
+  valuesFrom:
+  - secretKeyRef:
+      name: gitlab-runner-secrets
+  values:
+    image: gitlab/gitlab-runner:alpine-v13.5.0
+    gitlabUrl: https://git.soton.ac.uk
+    runners:
+      image: python:3.8.6-alpine
