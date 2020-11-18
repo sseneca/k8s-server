@@ -23,7 +23,13 @@ spec:
   values:
     image: gitlab/gitlab-runner:alpine-v13.5.0
     gitlabUrl: https://git.soton.ac.uk
-    runners:
-      image: alpine:latest
     rbac:
       create: true
+      resources: ["pods", "pods/exec", "secrets"]
+      verbs: ["get", "list", "watch", "create", "patch", "delete"]
+      clusterWideAccess: false
+    metrics:
+      enabled: false
+    runners:
+      image: alpine:latest
+      locked: false
