@@ -24,4 +24,6 @@ spec:
     image: gitlab/gitlab-runner:alpine-v13.5.0
     gitlabUrl: https://git.soton.ac.uk
     runners:
-      image: python:3.8.6-alpine
+      image: alpine:latest
+    rbac:
+      create: true
