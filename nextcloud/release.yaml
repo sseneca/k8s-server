@@ -1,3 +1,4 @@
+---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -21,8 +22,8 @@ spec:
     name: nextcloud
     version: 2.3.2
   valuesFrom:
-    - secretKeyRef:
-        name: nextcloud-secrets
+  - secretKeyRef:
+      name: nextcloud-secrets
   values:
     image:
       repository: nextcloud
@@ -33,24 +34,24 @@ spec:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         nginx.ingress.kubernetes.io/proxy-body-size: 4G
       tls:
-        - hosts:
-            - cloud.ssene.ca
-          secretName: nextcloud-tls-cert
+      - hosts:
+        - cloud.ssene.ca
+        secretName: nextcloud-tls-cert
     nextcloud:
       host: cloud.ssene.ca
       extraVolumes:
-        - name: photos
-          persistentVolumeClaim:
-            claimName: photos-nextcloud
-            readOnly: false
+      - name: photos
+        persistentVolumeClaim:
+          claimName: photos-nextcloud
+          readOnly: false
       extraVolumeMounts:
-        - name: photos
-          mountPath: "/mnt/photos"
+      - name: photos
+        mountPath: "/mnt/photos"
     nginx:
       enabled: true
       image:
         repository: nginx
-        tag: 1.19.4-alpine
+        tag: 1.19.4
     internalDatabase:
       enabled: false
     externalDatabase:
