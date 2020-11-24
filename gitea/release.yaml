@@ -55,7 +55,7 @@ spec:
         APP_NAME: "sseneca's gitea"
         RUN_MODE: prod
         repository:
-          PREFERRED_LICENSES: GPL-3.0+,Apache License 2.0,MIT License
+          PREFERRED_LICENSES: GPL-3.0-or-later,Apache-2.0,X11
           ENABLE_PUSH_CREATE_USER: true
           DEFAULT_BRANCH: main
         service:
@@ -64,8 +64,6 @@ spec:
           PASSWORD_CHECK_PWN: true
         picture:
           ENABLE_FEDERATED_AVATAR: true
-        server:
-          OFFLINE_MODE: true
     postgresql:
       image:
         tag: 13.1.0
