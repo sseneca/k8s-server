@@ -1,3 +1,4 @@
+---
 apiVersion: helm.fluxcd.io/v1
 kind: HelmRelease
 metadata:
@@ -21,7 +22,7 @@ spec:
   - secretKeyRef:
       name: gitlab-runner-secrets
   values:
-    image: gitlab/gitlab-runner:alpine-v13.5.0
+    image: gitlab/gitlab-runner:v13.6.0
     gitlabUrl: https://git.soton.ac.uk
     rbac:
       create: true
