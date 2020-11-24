@@ -6,7 +6,7 @@ metadata:
   namespace: gitlab-runner
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.chart-image: semver:alpine-v13.*
+    fluxcd.io/tag.chart-image: regex:alpine-v13.*
     fluxcd.io/tag.runners: semver:~3
 spec:
   test:
@@ -23,7 +23,7 @@ spec:
   - secretKeyRef:
       name: gitlab-runner-secrets
   values:
-    image: gitlab/gitlab-runner:v13.6.0
+    image: gitlab/gitlab-runner:alpine-v13.6.0
     gitlabUrl: https://git.soton.ac.uk
     rbac:
       create: true
