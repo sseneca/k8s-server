@@ -63,6 +63,7 @@ spec:
         security:
           PASSWORD_CHECK_PWN: true
         picture:
+          DISABLE_GRAVATAR: true
           ENABLE_FEDERATED_AVATAR: true
     postgresql:
       image:
