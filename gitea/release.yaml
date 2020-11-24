@@ -20,14 +20,14 @@ spec:
   chart:
     repository: https://dl.gitea.io/charts/
     name: gitea
-    version: 1.5.4
+    version: 2.0.3
   valuesFrom:
   - secretKeyRef:
       name: gitea-secrets
   values:
     image:
       repository: gitea/gitea
-      version: 1.12.5
+      version: 1.12.6
     service:
       http:
         type: ClusterIP
@@ -68,7 +68,7 @@ spec:
           OFFLINE_MODE: true
     postgresql:
       image:
-        tag: 13.0.0
+        tag: 13.1.0
       persistence:
         existingClaim: database-gitea
       volumePermissions:
