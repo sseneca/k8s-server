@@ -23,7 +23,7 @@ spec:
   - secretKeyRef:
       name: gitlab-runner-secrets
   values:
-    image: gitlab/gitlab-runner:alpine-v13.6.0
+    image: gitlab/gitlab-runner:v13.6.0
     gitlabUrl: https://git.soton.ac.uk
     rbac:
       create: true
@@ -33,5 +33,5 @@ spec:
     metrics:
       enabled: false
     runners:
-      image: alpine:3.12
+      image: alpine:3.12.1
       locked: false
