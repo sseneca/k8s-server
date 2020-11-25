@@ -33,6 +33,14 @@ spec:
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
         nginx.ingress.kubernetes.io/proxy-body-size: 4G
+        nginx.ingress.kubernetes.io/server-snippet: |-
+          location = /.well-known/carddav {
+              return 301 https://$host/remote.php/dav;
+          }
+
+          location = /.well-known/caldav {
+              return 301 https://$host/remote.php/dav;
+          }
       tls:
       - hosts:
         - cloud.ssene.ca
