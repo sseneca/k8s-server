@@ -19,8 +19,8 @@ spec:
   chart:
     repository: https://kubernetes-charts.storage.googleapis.com
     name: sealed-secrets
-    version: 1.10.3
+    version: 1.12.2
   values:
     image:
       repository: quay.io/bitnami/sealed-secrets-controller
-      tag: v0.12.6
+      tag: v0.13.1
