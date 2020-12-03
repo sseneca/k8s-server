@@ -30,7 +30,7 @@ spec:
       image:
         registry: quay.io
         repository: jetstack/cert-manager-webhook
-        tag: v1.0.4
+        tag: v1.1.0
     cainjector:
       image:
         registry: quay.io
