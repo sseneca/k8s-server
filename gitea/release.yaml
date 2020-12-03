@@ -24,7 +24,7 @@ spec:
       name: gitea-secrets
   values:
     image:
-      repository: gitea/gitea
+      repository: gitea/gitea:1.13.0
       version: 1.13.0
     service:
       http:
