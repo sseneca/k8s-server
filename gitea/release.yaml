@@ -10,7 +10,6 @@ metadata:
     tag.fluxcd.io/gitea: image.version
     fluxcd.io/tag.chart-image: semver:~1
     fluxcd.io/tag.postgresql: semver:~13.0
-    fluxcd.io/locked: "true"
 spec:
   test:
     enable: false
@@ -28,7 +27,7 @@ spec:
   values:
     image:
       repository: gitea/gitea
-      version: 1.12.6
+      version: 1.13.0
     service:
       http:
         type: ClusterIP
