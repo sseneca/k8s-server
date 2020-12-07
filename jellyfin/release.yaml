@@ -36,39 +36,50 @@ spec:
     persistence:
       config:
         enabled: true
-      tvshows:
-        enabled: false
-      movies:
-        enabled: false
-      extraExistingClaimMounts:
+      additionalVolumes:
         - name: music
-          mountPath: /mnt/music
-          existingClaim: jellyfin-music
-          readOnly: true
+          persistentVolumeClaim:
+            claimName: jellyfin-music
+            readOnly: true
         - name: podcasts
-          mountPath: /mnt/podcasts
-          existingClaim: jellyfin-podcasts
-          readOnly: false
+          persistentVolumeClaim:
+            claimName: jellyfin-podcasts
+            readOnly: false
         - name: youtube
-          mountPath: /mnt/youtube
-          existingClaim: jellyfin-youtube
-          readOnly: false
+          persistentVolumeClaim:
+            claimName: jellyfin-youtube
+            readOnly: false
         - name: lectures
-          mountPath: /mnt/lectures
-          existingClaim: jellyfin-lectures
-          readOnly: true
+          persistentVolumeClaim:
+            claimName: jellyfin-lectures
+            readOnly: true
         - name: shows
-          mountPath: /mnt/shows
-          existingClaim: jellyfin-shows
-          readOnly: true
+          persistentVolumeClaim:
+            claimName: jellyfin-shows
+            readOnly: true
         - name: books
-          mountPath: /mnt/books
-          existingClaim: jellyfin-books
-          readOnly: true
+          persistentVolumeClaim:
+            claimName: jellyfin-books
+            readOnly: true
         - name: films
-          mountPath: /mnt/movies
-          existingClaim: jellyfin-movies
-          readOnly: true
+          persistentVolumeClaim:
+            claimName: jellyfin-films
+            readOnly: true
+      additionalVolumeMounts:
+        - name: music
+          mountPath: "/mnt/music"
+        - name: podcasts
+          mountPath: "/mnt/podcasts"
+        - name: youtube
+          mountPath: "/mnt/youtube"
+        - name: lectures
+          mountPath: "/mnt/lectures"
+        - name: shows
+          mountPath: "/mnt/shows"
+        - name: books
+          mountPath: "/mnt/books"
+        - name: films
+          mountPath: "/mnt/films"
     resources:
-      limits:
+      requests:
         gpu.intel.com/i915: 1
