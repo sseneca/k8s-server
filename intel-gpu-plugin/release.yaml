@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.chart-image: semver:~0.18
+    fluxcd.io/tag.chart-image: semver:~0.19
 spec:
   test:
     enable: true
@@ -20,4 +20,4 @@ spec:
   values:
     image:
       repository: intel/intel-gpu-plugin
-      tag: 0.18.1
+      tag: 0.19
