@@ -62,9 +62,9 @@ spec:
         persistentVolumeClaim:
           claimName: jellyfin-books
           readOnly: true
-      - name: films
+      - name: movies
         persistentVolumeClaim:
-          claimName: jellyfin-films
+          claimName: jellyfin-movies
           readOnly: true
     additionalVolumeMounts:
       - name: music
@@ -79,8 +79,8 @@ spec:
         mountPath: "/mnt/shows"
       - name: books
         mountPath: "/mnt/books"
-      - name: films
-        mountPath: "/mnt/films"
+      - name: movies
+        mountPath: "/mnt/movies"
     resources:
       limits:
         gpu.intel.com/i915: 1
