@@ -26,9 +26,10 @@ spec:
       enabled: true
       annotations:
         cert-manager.io/cluster-issuer: letsencrypt-prod
-      path: /
       hosts:
-        - jellyfin.ssene.ca
+        - host: jellyfin.ssene.ca
+          paths:
+            - path: /
       tls:
         - hosts:
             - jellyfin.ssene.ca
@@ -36,50 +37,50 @@ spec:
     persistence:
       config:
         enabled: true
-      additionalVolumes:
-        - name: music
-          persistentVolumeClaim:
-            claimName: jellyfin-music
-            readOnly: true
-        - name: podcasts
-          persistentVolumeClaim:
-            claimName: jellyfin-podcasts
-            readOnly: false
-        - name: youtube
-          persistentVolumeClaim:
-            claimName: jellyfin-youtube
-            readOnly: false
-        - name: lectures
-          persistentVolumeClaim:
-            claimName: jellyfin-lectures
-            readOnly: true
-        - name: shows
-          persistentVolumeClaim:
-            claimName: jellyfin-shows
-            readOnly: true
-        - name: books
-          persistentVolumeClaim:
-            claimName: jellyfin-books
-            readOnly: true
-        - name: films
-          persistentVolumeClaim:
-            claimName: jellyfin-films
-            readOnly: true
-      additionalVolumeMounts:
-        - name: music
-          mountPath: "/mnt/music"
-        - name: podcasts
-          mountPath: "/mnt/podcasts"
-        - name: youtube
-          mountPath: "/mnt/youtube"
-        - name: lectures
-          mountPath: "/mnt/lectures"
-        - name: shows
-          mountPath: "/mnt/shows"
-        - name: books
-          mountPath: "/mnt/books"
-        - name: films
-          mountPath: "/mnt/films"
+    additionalVolumes:
+      - name: music
+        persistentVolumeClaim:
+          claimName: jellyfin-music
+          readOnly: true
+      - name: podcasts
+        persistentVolumeClaim:
+          claimName: jellyfin-podcasts
+          readOnly: false
+      - name: youtube
+        persistentVolumeClaim:
+          claimName: jellyfin-youtube
+          readOnly: false
+      - name: lectures
+        persistentVolumeClaim:
+          claimName: jellyfin-lectures
+          readOnly: true
+      - name: shows
+        persistentVolumeClaim:
+          claimName: jellyfin-shows
+          readOnly: true
+      - name: books
+        persistentVolumeClaim:
+          claimName: jellyfin-books
+          readOnly: true
+      - name: films
+        persistentVolumeClaim:
+          claimName: jellyfin-films
+          readOnly: true
+    additionalVolumeMounts:
+      - name: music
+        mountPath: "/mnt/music"
+      - name: podcasts
+        mountPath: "/mnt/podcasts"
+      - name: youtube
+        mountPath: "/mnt/youtube"
+      - name: lectures
+        mountPath: "/mnt/lectures"
+      - name: shows
+        mountPath: "/mnt/shows"
+      - name: books
+        mountPath: "/mnt/books"
+      - name: films
+        mountPath: "/mnt/films"
     resources:
       requests:
         gpu.intel.com/i915: 1
