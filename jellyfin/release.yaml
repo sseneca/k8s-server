@@ -82,5 +82,5 @@ spec:
       - name: films
         mountPath: "/mnt/films"
     resources:
-      requests:
+      limits:
         gpu.intel.com/i915: 1
