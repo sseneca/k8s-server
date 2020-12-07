@@ -20,7 +20,7 @@ spec:
   chart:
     repository: https://dl.gitea.io/charts/
     name: gitea
-    version: 2.0.4
+    version: 2.1.0
   valuesFrom:
   - secretKeyRef:
       name: gitea-secrets
