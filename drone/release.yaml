@@ -24,7 +24,7 @@ spec:
   values:
     image:
       repository: drone/drone
-      tag: 1.9.2
+      tag: 1.10.0
     ingress:
       enabled: true
       annotations:
