@@ -18,7 +18,7 @@ spec:
   chart:
     repository: https://charts.bitnami.com/bitnami
     name: metallb
-    version: 1.0.1
+    version: 1.0.2
   values:
     controller:
       image:
