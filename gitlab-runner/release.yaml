@@ -33,5 +33,5 @@ spec:
     metrics:
       enabled: false
     runners:
-      image: alpine:3.12.2
+      image: alpine:3.12.3
       locked: false
