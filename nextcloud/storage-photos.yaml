@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /srv/nfs/media/photos
+    path: /srv/smb/media/photos
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

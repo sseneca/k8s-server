@@ -10,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /srv/nfs/media/music
+    path: /srv/smb/media/music
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -37,7 +37,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /srv/nfs/media/podcasts
+    path: /srv/smb/media/podcasts
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -64,7 +64,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /srv/nfs/media/youtube
+    path: /srv/smb/media/youtube
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -91,7 +91,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /srv/nfs/media/lectures
+    path: /srv/smb/media/lectures
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -118,7 +118,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /srv/nfs/media/shows
+    path: /srv/smb/media/shows
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -145,7 +145,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /srv/nfs/media/books
+    path: /srv/smb/media/books
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -172,7 +172,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /srv/nfs/media/movies
+    path: /srv/smb/media/movies
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
