@@ -9,8 +9,16 @@ spec:
     storage: 200Gi
   accessModes:
     - ReadWriteOnce
-  hostPath:
+  local:
     path: /srv/smb/media/photos
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - sserver
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
