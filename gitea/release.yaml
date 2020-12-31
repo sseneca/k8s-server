@@ -20,7 +20,7 @@ spec:
   chart:
     repository: https://dl.gitea.io/charts/
     name: gitea
-    version: 2.1.3
+    version: 2.1.4
   valuesFrom:
   - secretKeyRef:
       name: gitea-secrets
@@ -73,6 +73,6 @@ spec:
       volumePermissions:
         enabled: true
       psp:
-        Create: true
+        create: true
       rbac:
         create: true
