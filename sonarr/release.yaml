@@ -39,4 +39,4 @@ spec:
         enabled: true
     media:
       enabled: true
-      existingClaim: "sonarr"
+      existingClaim: "sonarr-shows"
