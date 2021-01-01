@@ -1,0 +1,42 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: sonarr
+  namespace: sonarr
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: regex:^(version-3\.[0-9]+\.[0-9]+\.[0-9]+$)
+spec:
+  test:
+    enable: false
+  rollback:
+    enable: true
+    retry: true
+  releaseName: sonarr
+  chart:
+    repository: https://k8s-at-home.com/charts/
+    name: sonarr
+    version: 8.1.1
+  values:
+    image:
+      repository: linuxserver/sonarr
+      tag: version-3.0.4.1026
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - host: sonarr.ssene.ca
+          paths:
+            - path: /
+      tls:
+        - hosts:
+          - sonarr.ssene.ca
+          secretName: sonarr-tls-cert
+    persistence:
+      config:
+        enabled: true
+    media:
+      enabled: true
+      existingClaim: "sonarr"
