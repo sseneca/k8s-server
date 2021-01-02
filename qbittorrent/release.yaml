@@ -1,0 +1,29 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: qbittorrent
+  namespace: qbittorrent
+spec:
+  test:
+    enable: false
+  rollback:
+    enable: true
+    retry: true
+  releaseName: qbittorrent
+  chart:
+    repository: https://k8s-at-home.com/charts/
+    name: qbittorrent
+    version: 7.1.1
+  values:
+    image:
+      repository: linuxserver/qbittorrent
+      tag: version-4.3.0202010181232-7086-1c663adeeubuntu18.04.1
+    service:
+      type: LoadBalancer
+    persistence:
+      config:
+        enabled: true
+    media:
+      enabled: true
+      existingClaim: "qbittorrent"
