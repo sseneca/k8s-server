@@ -18,8 +18,14 @@ spec:
   chart:
     repository: https://charts.bitnami.com/bitnami
     name: metallb
-    version: 1.0.2
+    version: 2.0.2
   values:
+    configInline:
+      address-pools:
+      - name: default
+        protocol: layer2
+        addresses:
+        - 192.168.1.240-192.168.1.250
     controller:
       image:
         repository: bitnami/metallb-controller
@@ -28,9 +34,3 @@ spec:
       image:
         repository: bitnami/metallb-speaker
         tag: 0.9.5
-    configInline:
-      address-pools:
-      - name: default
-        protocol: layer2
-        addresses:
-        - 192.168.1.240-192.168.1.250

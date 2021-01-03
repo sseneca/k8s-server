@@ -18,7 +18,7 @@ spec:
   chart:
     repository: https://charts.gitlab.io
     name: gitlab-runner
-    version: 0.23.0
+    version: 0.24.0
   valuesFrom:
   - secretKeyRef:
       name: gitlab-runner-secrets

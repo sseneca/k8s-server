@@ -16,7 +16,7 @@ spec:
   chart:
     repository: https://k8s-at-home.com/charts/
     name: jellyfin
-    version: 3.3.0
+    version: 4.2.1
   values:
     image:
       repository: jellyfin/jellyfin
