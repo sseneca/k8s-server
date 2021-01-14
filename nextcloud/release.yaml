@@ -91,13 +91,12 @@ spec:
     persistence:
       enabled: true
     livenessProbe:
-      enabled: false
-    readinessProbe:
-      enabled: false
-    startupProbe:
       enabled: true
       initialDelaySeconds: 30
-      periodSeconds: 10
-      timeoutSeconds: 5
-      failureThreshold: 30
-      successThreshold: 1
+      periodSeconds: 15
+    readinessProbe:
+      enabled: true
+      initialDelaySeconds: 30
+      periodSeconds: 15
+    startupProbe:
+      enabled: false
