@@ -82,6 +82,7 @@ spec:
         create: true
     redis:
       enabled: true
+      usePassword: true
     cronjob:
       enabled: false
       image:
