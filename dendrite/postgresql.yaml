@@ -1,0 +1,35 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: postgresql
+  namespace: dendrite
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: semver:~13.1
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  releaseName: postgresql
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: postgresql
+    version: 10.2.6
+  valuesFrom:
+  - secretKeyRef:
+      name: postgresql-credentials
+  values:
+    image:
+      repository: bitnami/postgresql
+      tag: 13.1.0
+    persistence:
+      existingClaim: database-dendrite
+    volumePermissions:
+      enabled: true
+    psp:
+      create: true
+    rbac:
+      create: true
