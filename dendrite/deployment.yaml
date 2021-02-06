@@ -27,9 +27,15 @@ spec:
             - mountPath: /etc/dendrite
               name: encryption-secrets
               readOnly: true
+            - mountPath: /var/dendrite/media
+              name: media
+              readOnly: false
       restartPolicy: Always
       volumes:
         - name: encryption-secrets
           secret:
             secretName: encryption-secrets
+        - name: media
+          persistentVolumeClaim:
+            claimName: dendrite-media
 status: {}
