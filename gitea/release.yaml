@@ -8,7 +8,7 @@ metadata:
     fluxcd.io/automated: "true"
     repository.fluxcd.io/gitea: image.repository
     tag.fluxcd.io/gitea: image.version
-    fluxcd.io/tag.chart-image: semver:~1
+    fluxcd.io/tag.chart-image: regex:^1\.13\.[0-9]+$
     fluxcd.io/tag.postgresql: semver:~13.0
 spec:
   test:
