@@ -5,11 +5,7 @@ metadata:
   name: gitea
   namespace: gitea
   annotations:
-    fluxcd.io/automated: "true"
-    repository.fluxcd.io/gitea: image.repository
-    tag.fluxcd.io/gitea: image.version
-    fluxcd.io/tag.chart-image: regex:^1\.13\.[0-9]+$
-    fluxcd.io/tag.postgresql: semver:~13.0
+    fluxcd.io/automated: "false"
 spec:
   test:
     enable: false
@@ -27,7 +23,7 @@ spec:
   values:
     image:
       repository: gitea/gitea
-      version: linux-arm64-rootless
+      version: 1.13.2
     service:
       http:
         type: ClusterIP
