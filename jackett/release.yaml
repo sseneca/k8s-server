@@ -21,7 +21,7 @@ spec:
   values:
     image:
       repository: linuxserver/jackett
-      tag: version-v0.17.242
+      tag: version-v0.17.496
     service:
       type: LoadBalancer
     persistence:
