@@ -27,7 +27,7 @@ spec:
   values:
     image:
       repository: gitea/gitea
-      version: 1.13.2
+      version: linux-arm64-rootless
     service:
       http:
         type: ClusterIP
