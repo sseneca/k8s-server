@@ -20,7 +20,7 @@ spec:
   chart:
     repository: https://nextcloud.github.io/helm
     name: nextcloud
-    version: 2.5.0
+    version: 2.5.4
   valuesFrom:
   - secretKeyRef:
       name: nextcloud-secrets
@@ -84,7 +84,7 @@ spec:
       enabled: true
       usePassword: true
     cronjob:
-      enabled: false
+      enabled: true
       image:
         repository: curlimages/curl
         tag: 7.75.0
