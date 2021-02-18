@@ -9,7 +9,6 @@ metadata:
     fluxcd.io/tag.chart-image: regex:20\.[0-9]+\.[0-9]+-fpm-alpine$
     fluxcd.io/tag.nginx: regex:1\.19\.[0-9]+-alpine$
     fluxcd.io/tag.postgresql: semver:~13.1
-    fluxcd.io/tag.cronjob: semver:~7
 spec:
   test:
     enable: true
@@ -84,7 +83,7 @@ spec:
       enabled: true
       usePassword: true
     cronjob:
-      enabled: true
+      enabled: false
       image:
         repository: curlimages/curl
         tag: 7.75.0
