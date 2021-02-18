@@ -18,7 +18,7 @@ spec:
         app: dendrite
     spec:
       containers:
-        - image: matrixdotorg/dendrite-monolith:v0.3.9
+        - image: matrixdotorg/dendrite-monolith:v0.3.10
           name: monolith
           ports:
             - containerPort: 8008
