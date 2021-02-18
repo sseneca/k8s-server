@@ -91,11 +91,11 @@ spec:
       enabled: true
     livenessProbe:
       enabled: true
-      initialDelaySeconds: 30
-      periodSeconds: 15
+      initialDelaySeconds: 90
+      periodSeconds: 45
     readinessProbe:
       enabled: true
-      initialDelaySeconds: 30
-      periodSeconds: 15
+      initialDelaySeconds: 90
+      periodSeconds: 45
     startupProbe:
       enabled: false
