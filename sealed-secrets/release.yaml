@@ -17,9 +17,9 @@ spec:
     retry: true
   releaseName: sealed-secrets
   chart:
-    repository: https://kubernetes-charts.storage.googleapis.com
+    repository: https://bitnami-labs.github.io/sealed-secrets
     name: sealed-secrets
-    version: 1.12.2
+    version: 1.13.2
   values:
     image:
       repository: quay.io/bitnami/sealed-secrets-controller
