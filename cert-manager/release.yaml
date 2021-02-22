@@ -5,7 +5,7 @@ metadata:
   name: cert-manager
   namespace: cert-manager
   annotations:
-    fluxcd.io/automated: "true"
+    fluxcd.io/automated: "false"
     fluxcd.io/tag.chart-image: semver:~1
     fluxcd.io/tag.webhook: semver:~1
     fluxcd.io/tag.cainjector: semver:~1
@@ -25,14 +25,14 @@ spec:
     image:
       registry: quay.io
       repository: jetstack/cert-manager-controller
-      tag: v1.2.0
+      tag: v1.1.1
     webhook:
       image:
         registry: quay.io
         repository: jetstack/cert-manager-webhook
-        tag: v1.2.0
+        tag: v1.1.1
     cainjector:
       image:
         registry: quay.io
         repository: jetstack/cert-manager-cainjector
-        tag: v1.2.0
+        tag: v1.1.1
