@@ -82,6 +82,8 @@ spec:
           name: etc-ssl
         - mountPath: /tmp
           name: tmp
+        - mountPath: /etc/ca-certificates/extracted
+          name: etc-extracted
       serviceAccountName: system-upgrade
       tolerations:
       - key: CriticalAddonsOnly
@@ -96,3 +98,7 @@ spec:
         name: etc-ssl
       - emptyDir: {}
         name: tmp
+      - hostPath:
+          path: /etc/ca-certificates/extracted
+          type: Directory
+        name: etc-extracted
