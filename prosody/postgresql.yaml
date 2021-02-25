@@ -1,0 +1,34 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: postgresql
+  namespace: prosody
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: semver:~13.1
+spec:
+  test:
+    enable: true
+  rollback:
+    enable: true
+    retry: true
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: postgresql
+    version: 10.3.6
+  valuesFrom:
+  - secretKeyRef:
+      name: postgresql-credentials
+  values:
+    image:
+      repository: bitnami/postgresql
+      tag: 13.1.0
+    persistence:
+      existingClaim: database-prosody
+    volumePermissions:
+      enabled: true
+    psp:
+      create: true
+    rbac:
+      create: true
