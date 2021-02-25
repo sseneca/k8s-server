@@ -13,6 +13,15 @@ spec:
     - http01:
         ingress:
           class: nginx
+    - dns01:
+        cloudflare:
+          email: j5d1cvytwphp@maskedmails.com
+          apiTokenSecretRef:
+            name: cloudflare-api-token-secret
+            key: api-token
+      selector:
+        matchLabels:
+          "use-dns-solver": "true"
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
