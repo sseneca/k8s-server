@@ -84,16 +84,14 @@ spec:
       usePassword: true
     persistence:
       enabled: true
-    livenessProbe:
-      enabled: true
-      initialDelaySeconds: 90
-      periodSeconds: 45
-    readinessProbe:
-      enabled: true
-      initialDelaySeconds: 90
-      periodSeconds: 45
     startupProbe:
-      enabled: false
+      enabled: true
+      httpGet:
+        path: /status.php
+        port: 80
+        httpHeaders:
+        - name: Host
+          value: cloud.ssene.ca
     lifecycle:
       postStartCommand: ["/bin/sh", "-c", "crond"]
     extraEnv:
