@@ -85,13 +85,7 @@ spec:
     persistence:
       enabled: true
     startupProbe:
-      enabled: true
-      httpGet:
-        path: /status.php
-        port: 80
-        httpHeaders:
-        - name: Host
-          value: cloud.ssene.ca
+      enabled: false
     lifecycle:
       postStartCommand: ["/bin/sh", "-c", "crond"]
     extraEnv:
