@@ -19,7 +19,7 @@ spec:
   chart:
     repository: https://nextcloud.github.io/helm
     name: nextcloud
-    version: 2.5.4
+    version: 2.5.11
   valuesFrom:
   - secretKeyRef:
       name: nextcloud-secrets
