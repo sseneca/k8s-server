@@ -96,3 +96,6 @@ spec:
       enabled: false
     lifecycle:
       postStartCommand: ["/bin/sh", "-c", "crond"]
+    extraEnv:
+      - name: PHP_MEMORY_LIMIT
+        value: 512M
