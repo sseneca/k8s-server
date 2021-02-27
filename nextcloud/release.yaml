@@ -82,11 +82,6 @@ spec:
     redis:
       enabled: true
       usePassword: true
-    cronjob:
-      enabled: false
-      image:
-        repository: curlimages/curl
-        tag: 7.75.0
     persistence:
       enabled: true
     livenessProbe:
@@ -99,3 +94,5 @@ spec:
       periodSeconds: 45
     startupProbe:
       enabled: false
+    lifecycle:
+      postStartCommand: ["/bin/sh", "-c", "crond"]
