@@ -5,7 +5,7 @@ metadata:
   namespace: jellyfin
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.chart-image: regex:10\.6.[0-9]+$
+    fluxcd.io/tag.chart-image: regex:10\.7.[0-9]+$
 spec:
   test:
     enable: true
@@ -16,12 +16,11 @@ spec:
   chart:
     repository: https://k8s-at-home.com/charts/
     name: jellyfin
-    version: 4.2.1
+    version: 5.1.0
   values:
     image:
       repository: jellyfin/jellyfin
-      tag: 10.6.4
-    timezone: UTC+1
+      tag: 10.7.0
     ingress:
       enabled: true
       annotations:
