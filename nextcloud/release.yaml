@@ -58,7 +58,7 @@ spec:
       enabled: true
       image:
         repository: nginx
-        tag: 1.19.7-alpine
+        tag: 1.19.8-alpine
     internalDatabase:
       enabled: false
     externalDatabase:
@@ -89,5 +89,5 @@ spec:
     lifecycle:
       postStartCommand: ["/bin/sh", "-c", "crond"]
     extraEnv:
-      - name: PHP_MEMORY_LIMIT
-        value: 512M
+    - name: PHP_MEMORY_LIMIT
+      value: 512M
