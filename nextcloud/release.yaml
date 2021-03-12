@@ -46,14 +46,6 @@ spec:
         secretName: nextcloud-tls-cert
     nextcloud:
       host: cloud.ssene.ca
-      extraVolumes:
-      - name: photos
-        persistentVolumeClaim:
-          claimName: photos-nextcloud
-          readOnly: false
-      extraVolumeMounts:
-      - name: photos
-        mountPath: "/mnt/photos"
     nginx:
       enabled: true
       image:
