@@ -58,7 +58,7 @@ spec:
       enabled: true
       image:
         repository: nginx
-        tag: 1.19.8-alpine
+        tag: 1.19.9-alpine
     internalDatabase:
       enabled: false
     externalDatabase:
