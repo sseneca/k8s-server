@@ -84,7 +84,11 @@ spec:
       usePassword: true
     persistence:
       enabled: true
-    startupProbe:
+    livenessProbe:
       enabled: false
+    readinessProbe:
+      enabled: false
+    startupProbe:
+      enabled: true
     lifecycle:
       postStartCommand: ["/bin/sh", "-c", "crond"]
