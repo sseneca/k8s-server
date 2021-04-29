@@ -16,25 +16,14 @@ spec:
   chart:
     repository: https://dl.gitea.io/charts/
     name: gitea
-    version: 3.0.0
+    version: 2.2.3
   valuesFrom:
   - secretKeyRef:
       name: gitea-secrets
   values:
     image:
       repository: gitea/gitea
-      tag: 1.14.1
-      rootless: true
-    securityContext:
-      allowPrivilegeEscalation: false
-      capabilities:
-        drop:
-          - ALL
-      privileged: false
-      readOnlyRootFilesystem: true
-      runAsGroup: 1000
-      runAsNonRoot: true
-      runAsUser: 1000
+      version: 1.13.7
     service:
       http:
         type: ClusterIP
