@@ -16,14 +16,15 @@ spec:
   chart:
     repository: https://dl.gitea.io/charts/
     name: gitea
-    version: 2.2.3
+    version: 3.0.0
   valuesFrom:
   - secretKeyRef:
       name: gitea-secrets
   values:
     image:
       repository: gitea/gitea
-      version: 1.13.7
+      tag: 1.14.1
+      rootless: false
     service:
       http:
         type: ClusterIP
@@ -51,6 +52,7 @@ spec:
         APP_NAME: "sseneca's gitea"
         RUN_MODE: prod
         repository:
+          ROOT: /data/git/gitea-repositories
           PREFERRED_LICENSES: GPL-3.0-or-later,Apache-2.0,X11
           ENABLE_PUSH_CREATE_USER: true
           DEFAULT_BRANCH: main
