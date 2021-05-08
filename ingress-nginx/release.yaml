@@ -5,7 +5,7 @@ metadata:
   namespace: kube-system
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.chart-image: glob:v0.*
+    fluxcd.io/tag.chart-image: regex:v0\.4[0-9]\.[0-9]$
 spec:
   test:
     enable: true
@@ -16,9 +16,9 @@ spec:
   chart:
     repository: https://kubernetes.github.io/ingress-nginx
     name: ingress-nginx
-    version: 3.19.0
+    version: 3.30.0
   values:
     controller:
       image:
         repository: k8s.gcr.io/ingress-nginx/controller
-        tag: v0.40.1
+        tag: v0.46.0
