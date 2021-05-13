@@ -18,7 +18,7 @@ spec:
         app: prosody
     spec:
       containers:
-        - image: prosody/prosody:0.11.8
+        - image: prosody/prosody:0.11.9
           name: prosody
           ports:
             - containerPort: 5222
