@@ -1,3 +1,11 @@
+# Note
+
+I've migrated to Fluxv2; [new repository
+here](https://github.com/sseneca/sserver).
+
+<details>
+  <summary>Old README</summary>
+
 # sseneca's k8s server
 
 This repository contains all my server's deploy files.
@@ -19,3 +27,5 @@ Secrets are [sealed](https://github.com/bitnami-labs/sealed-secrets).
 - Flux and the Helm Operator need to be bootstrapped manually (via
   `fluxctl`)
 - Node configuration isn't included
+
+</details>
